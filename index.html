@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Untuk Azizah</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+background:linear-gradient(#0f2027,#203a43,#2c5364);
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Arial;
+overflow:hidden;
+color:white;
+flex-direction:column;
+}
+
+/* nama di langit */
+
+.title{
+position:absolute;
+top:40px;
+font-size:28px;
+font-weight:bold;
+letter-spacing:2px;
+text-shadow:0 0 10px pink;
+}
+
+/* bintang */
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+animation:blink 2s infinite;
+}
+
+@keyframes blink{
+0%,100%{opacity:1}
+50%{opacity:0.3}
+}
+
+/* love jatuh */
+
+.heart{
+position:absolute;
+color:#ff4d88;
+font-size:20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh)}
+100%{transform:translateY(110vh)}
+}
+
+/* amplop */
+
+.envelope{
+width:230px;
+height:140px;
+background:#ff4d88;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+box-shadow:0 10px 20px rgba(0,0,0,0.4);
+transition:0.4s;
+}
+
+.envelope:hover{
+transform:scale(1.1);
+}
+
+/* surat */
+
+.letter{
+position:absolute;
+background:white;
+color:black;
+width:320px;
+padding:25px;
+border-radius:12px;
+text-align:center;
+opacity:0;
+transform:translateY(40px);
+transition:0.7s;
+box-shadow:0 15px 30px rgba(0,0,0,0.4);
+}
+
+.letter.show{
+opacity:1;
+transform:translateY(0);
+}
+
+h1{
+color:#ff4d88;
+}
+
+/* tombol */
+
+.loveBtn{
+margin-top:15px;
+padding:10px 18px;
+border:none;
+background:#ff4d88;
+color:white;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="title">✨ Lintang ❤️ Azizah ✨</div>
+
+<div class="envelope" onclick="openLetter()">
+💌 Buka Surat Sayang
+</div>
+
+<div class="letter" id="letter">
+
+<h1>Cepat Sehat Yaa Sayaaang 💖</h1>
+
+<p>
+Cepat sembuh yaa sayaaang atuu,<br><br>
+jangan mikirin yang ngga-ngga yaa sayaaang.<br><br>
+Aku selalu doain kamu cepat sehat 🤍
+</p>
+
+<button class="loveBtn" onclick="loveRain()">I Love You ❤️</button>
+
+</div>
+
+<audio autoplay loop>
+<source src="monolog.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+/* buka surat */
+
+function openLetter(){
+document.getElementById("letter").classList.add("show")
+}
+
+/* bintang */
+
+for(let i=0;i<80;i++){
+let star=document.createElement("div")
+star.className="star"
+star.style.top=Math.random()*100+"vh"
+star.style.left=Math.random()*100+"vw"
+document.body.appendChild(star)
+}
+
+/* love jatuh */
+
+for(let i=0;i<25;i++){
+let heart=document.createElement("div")
+heart.className="heart"
+heart.innerHTML="❤"
+heart.style.left=Math.random()*100+"vw"
+heart.style.animationDuration=(4+Math.random()*5)+"s"
+document.body.appendChild(heart)
+}
+
+/* tombol I love you */
+
+function loveRain(){
+
+for(let i=0;i<100;i++){
+
+let love=document.createElement("div")
+
+love.innerHTML="💖"
+
+love.style.position="absolute"
+love.style.left=Math.random()*100+"vw"
+love.style.top=Math.random()*100+"vh"
+love.style.fontSize="24px"
+
+document.body.appendChild(love)
+
+setTimeout(()=>{
+love.remove()
+},2000)
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
+```
